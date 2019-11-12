@@ -13,3 +13,19 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"] # Canonical
 }
+
+data "aws_ami" "aws" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ami-08d489468314a58df"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["08d489468314a58df"] 
+}
